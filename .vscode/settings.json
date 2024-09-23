@@ -1,0 +1,17 @@
+{
+    "files.exclude": {
+        ".gitignore": true,
+        ".vscode": true,
+        "*~": true,
+        "segfault": true,
+    },
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "overrideName": true,
+            "path": "bash",
+            "icon": "terminal-bash",
+            "args": ["-c", "export PS1='$ '; bash --norc \"$@\"", "--"]
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "bash"
+}
