@@ -1,2 +1,7 @@
+/workspace/
 *~
 /segfault
+/print-struct
+/maze
+__pycache__/
+*.o

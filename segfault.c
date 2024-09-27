@@ -4,4 +4,5 @@ void f() {
 }
 void g() { f(); }
 void h() { g(); }
+int main() __attribute__((weak));
 int main() { h(); }

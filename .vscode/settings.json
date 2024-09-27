@@ -2,8 +2,13 @@
     "files.exclude": {
         ".gitignore": true,
         ".vscode": true,
+        "*.o": true,
+        "**/__pycache__": true,
         "*~": true,
+        "maze": true,
+        "print-struct": true,
         "segfault": true,
+        "workspace/": true
     },
     "terminal.integrated.profiles.linux": {
         "bash": {
@@ -13,5 +18,8 @@
             "args": ["-c", "export PS1='$ '; bash --norc \"$@\"", "--"]
         }
     },
-    "terminal.integrated.defaultProfile.linux": "bash"
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "zig.path": "${workspaceFolder}/workspace/src/zig-linux-x86_64-0.13.0/zig",
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.tabs.description": "${task}"
 }
