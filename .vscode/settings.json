@@ -15,7 +15,7 @@
             "overrideName": true,
             "path": "bash",
             "icon": "terminal-bash",
-            "args": ["-c", "export PS1='$ '; bash --norc \"$@\"", "--"]
+            "args": ["-c", "export PS1='$ '; export XDG_CONFIG_HOME=\"$(pwd)/workspace\"; bash --norc \"$@\"", "--"]
         }
     },
     "terminal.integrated.defaultProfile.linux": "bash",

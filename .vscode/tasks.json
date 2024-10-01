@@ -7,7 +7,12 @@
         "label": "build",
         "type": "shell",
         "command": "gcc",
-        "args": ["-g", "-o", "segfault", "segfault.c"],
+        "args": [
+          "-g",
+          "-o",
+          "segfault",
+          "segfault.c"
+        ],
         "problemMatcher": {
           "owner": "cpp",
           "fileLocation": [
@@ -28,6 +33,18 @@
           "kind": "build",
           "isDefault": true
         }
+      },
+      {
+        "label": "RetroArch",
+        "type": "shell",
+        "command": "${workspaceFolder}/workspace/usr/bin/retroarch",
+        "group": "none",
+        "presentation": {
+          "reveal": "never",
+          "focus": false,
+          "panel": "shared",
+        },
+        "problemMatcher": []
       }
     ]
 }

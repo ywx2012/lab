@@ -2,6 +2,7 @@ import os
 from urllib.request import urlretrieve
 from shutil import move
 import tarfile
+from zipfile import ZipFile
 
 class Config:
 
@@ -20,5 +21,10 @@ def download(url, filename):
     move(fp, filename)
 
 def extractall(filename, path):
-    with tarfile.open(filename) as fp:
-        fp.extractall(path, filter='data')
+    os.makedirs(path, exist_ok=True)
+    if filename.endswith(".zip"):
+        with ZipFile(filename) as fp:
+            fp.extractall(path)
+    else:
+        with tarfile.open(filename) as fp:
+            fp.extractall(path, filter='data')
