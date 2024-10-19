@@ -10,6 +10,7 @@ class Config:
         self.rootdir = os.path.abspath(rootdir)
         self.srcdir = os.path.join(self.rootdir, "src")
         self.usrdir = os.path.join(self.rootdir, "usr")
+        self.bootdir = os.path.join(self.rootdir, "boot")
 
 def download(url, filename):
     if os.path.exists(filename):
@@ -25,6 +26,6 @@ def extractall(filename, path):
     if filename.endswith(".zip"):
         with ZipFile(filename) as fp:
             fp.extractall(path)
-    else:
+    elif any(filename.endswith(f".tar{ext}") for ext in ("", ".gz", ".bz2", "xz")):
         with tarfile.open(filename) as fp:
             fp.extractall(path, filter='data')

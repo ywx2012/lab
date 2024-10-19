@@ -13,9 +13,9 @@
     "terminal.integrated.profiles.linux": {
         "bash": {
             "overrideName": true,
-            "path": "bash",
+            "path": "flatpak-spawn",
             "icon": "terminal-bash",
-            "args": ["-c", "export PS1='$ '; export XDG_CONFIG_HOME=\"$(pwd)/workspace\"; bash --norc \"$@\"", "--"]
+            "args": ["--host", "--watch-bus", "--", "toolbox", "run", "bash", "-c", "export PS1='$ '; export XDG_CONFIG_HOME=\"$(pwd)/workspace\"; bash --norc \"$@\"", "--"]
         }
     },
     "terminal.integrated.defaultProfile.linux": "bash",
