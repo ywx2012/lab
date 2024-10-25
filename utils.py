@@ -21,11 +21,18 @@ def download(url, filename):
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     move(fp, filename)
 
-def extractall(filename, path):
-    os.makedirs(path, exist_ok=True)
+def extractall(filename, path, create=False):
     if filename.endswith(".zip"):
+        if create:
+            path = os.path.join(path, filename[:-4])
+        os.makedirs(path, exist_ok=True)
         with ZipFile(filename) as fp:
             fp.extractall(path)
     elif any(filename.endswith(f".tar{ext}") for ext in ("", ".gz", ".bz2", "xz")):
+        if create:
+            base, ext = os.path.splitext(filename)
+            if ext != ".tar":
+                base, ext = os.path.splitext(base)
+            path = os.path.join(path, base)
         with tarfile.open(filename) as fp:
             fp.extractall(path, filter='data')
